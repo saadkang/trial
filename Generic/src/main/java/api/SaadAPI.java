@@ -26,7 +26,7 @@ public class SaadAPI {
     private String saucelabs_accesskey = "77980a15-1902-410c-aa3f-a8984ff2935d";
     private String browserstack_accesskey = "cwYAjPCffCz8wpqYfEQm";
 
-    @Parameter({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
+    @Parameter(names = {"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("Windows") String os, @Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
