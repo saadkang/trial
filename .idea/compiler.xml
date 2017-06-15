@@ -6,11 +6,14 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="SelfAutomation" />
+        <module name="BestBuy" />
+        <module name="Generic" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SelfAutomation" target="1.5" />
+      <module name="BestBuy" target="1.8" />
+      <module name="Generic" target="1.8" />
+      <module name="SelfAutomation" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BestBuy/BestBuy.iml" filepath="$PROJECT_DIR$/BestBuy/BestBuy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generic/Generic.iml" filepath="$PROJECT_DIR$/Generic/Generic.iml" />
       <module fileurl="file://$PROJECT_DIR$/SelfAutomation.iml" filepath="$PROJECT_DIR$/SelfAutomation.iml" />
     </modules>
   </component>
