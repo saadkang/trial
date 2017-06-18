@@ -1,6 +1,5 @@
 package api;
 
-import com.beust.jcommander.Parameter;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -10,23 +9,24 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by saadi on 6/14/2017.
+ * Created by saadi on 6/17/2017.
  */
 public class SaadAPI {
 
     public static WebDriver driver = null;
-    private String saucelabs_username = "saadi_kang@hotmail.com";
-    private String browserstack_username = "chirayupatel1";
-    private String saucelabs_accesskey = "77980a15-1902-410c-aa3f-a8984ff2935d";
-    private String browserstack_accesskey = "cwYAjPCffCz8wpqYfEQm";
+    private String saucelabs_username = "";
+    private String browserstack_username = "";
+    private String saucelabs_accesskey = "";
+    private String browserstack_accesskey = "";
 
-    @Parameter(names = {"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
+    @Parameters({"useCloudEnv", "cloudEnvName", "os", "os_version", "browserName", "browserVersion", "url"})
     @BeforeMethod
     public void setUp(@Optional("false") boolean useCloudEnv, @Optional("false") String cloudEnvName,
                       @Optional("Windows") String os, @Optional("10") String os_version, @Optional("firefox") String browserName, @Optional("34")
@@ -38,7 +38,7 @@ public class SaadAPI {
                 getCloudDriver(cloudEnvName, saucelabs_username, saucelabs_accesskey, os, os_version, browserName, browserVersion);
             }
         } else {
-//            run in local
+            //run in local
             getLocalDriver(os, browserName);
         }
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -51,39 +51,54 @@ public class SaadAPI {
         if (browserName.equalsIgnoreCase("chrome")) {
             if (OS.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
-            } else if (OS.equalsIgnoreCase("Win")) {
+            } else if (OS.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             }
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
             if (OS.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
-            } else if (OS.equalsIgnoreCase("Windows")) {
+            } else if (OS.equalsIgnoreCase("Window")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver.exe");
             }
             driver = new FirefoxDriver();
         }else if (browserName.equalsIgnoreCase("ie")){
-            System.setProperty("webdriver.ie.driver", "..Generic/driver/IEDriverServer.exe");
+            System.setProperty("webdriver.ie.driver", "../Generic/driver/IEDriverServer.exe");
             driver = new InternetExplorerDriver();
         }
         return driver;
     }
-    public WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
-                                    String browserVersion) throws IOException{
-        DesiredCapabilities cap = new DesiredCapabilities();
-        cap.setCapability("browser", browserName);
-        cap.setCapability("browser_version", browserVersion);
-        cap.setCapability("os", os);
-        cap.setCapability("os_version", os_version);
-        if (envName.equalsIgnoreCase("Saucelabs")){
-            driver = new RemoteWebDriver(new URL("https://"+envUsername+":"+envAccessKey+
-            "@ondemand.saucelabs.com:80/wd.hub"), cap);
-        }else if (envName.equalsIgnoreCase("Browserstack")){
-            cap.setCapability("resolution", "1024x768");
-            driver = new RemoteWebDriver(new URL("https://"+envUsername+":"+envAccessKey+
-            "@hub-cloud.browserstack.com/wd/hub"), cap);
+    public WebDriver getLocalGridDriver(String browserName){
+        if (browserName.equalsIgnoreCase("chrome")){
+            System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
+            driver = new ChromeDriver();
+        }else if (browserName.equalsIgnoreCase("firefox")){
+            System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
+            driver = new FirefoxDriver();
+        }else if (browserName.equalsIgnoreCase("ie")){
+            System.setProperty("webdriver.ie.driver", "../Generic/browser-driver/IEDriverServer.exe");
+            driver = new InternetExplorerDriver();
         }
         return driver;
+
+    }
+    public WebDriver getCloudDriver(String envName, String envUsername, String envAccessKey, String os, String os_version, String browserName,
+                                    String browserVersion) throws IOException{
+        DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
+        desiredCapabilities.setCapability("browser", browserName);
+        desiredCapabilities.setCapability("browser_version", browserVersion);
+        desiredCapabilities.setCapability("os", os);
+        desiredCapabilities.setCapability("os_version", os_version);
+        if (envName.equalsIgnoreCase("Saucelabs")){
+            driver = new RemoteWebDriver(new URL("http://"+envUsername+":"+envAccessKey+
+            "@ondemand.saucelabs.com:80/wd/hub"), desiredCapabilities);
+        }else if (envName.equalsIgnoreCase("Browserstack")){
+            desiredCapabilities.setCapability("resolution", "1024x768");
+            driver = new RemoteWebDriver(new URL("http://"+envUsername+envAccessKey+
+            "@hub-cloud.browserstack.com/wd/hub"), desiredCapabilities);
+        }
+        return driver;
+
     }
     @AfterMethod
     public void cleanUp(){
@@ -91,4 +106,23 @@ public class SaadAPI {
         driver.quit();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
