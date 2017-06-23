@@ -11,6 +11,8 @@
     <modules>
         <module>Generic</module>
         <module>BestBuy</module>
+        <module>StumbleUpon</module>
+        <module>YouTube</module>
     </modules>
 
     <dependencyManagement>

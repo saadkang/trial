@@ -10,8 +10,9 @@ import org.openqa.selenium.By;
 public class TestHomePage extends SaadAPI{
 
     @Test
-    public void testHomePage(){
-        driver.findElement(By.cssSelector("#menu0")).click();
+    public void testHomePage() throws InterruptedException {
+        mouseHoverByCss("#menu0");
+        Thread.sleep(3000);
     }
 
 }

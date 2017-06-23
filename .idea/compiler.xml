@@ -8,12 +8,16 @@
         <outputRelativeToContentRoot value="true" />
         <module name="BestBuy" />
         <module name="Generic" />
+        <module name="StumbleUpon" />
+        <module name="YouTube" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="BestBuy" target="1.8" />
       <module name="Generic" target="1.8" />
       <module name="SelfAutomation" target="1.8" />
+      <module name="StumbleUpon" target="1.8" />
+      <module name="YouTube" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
