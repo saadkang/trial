@@ -11,7 +11,7 @@ import org.openqa.selenium.support.How;
  */
 public class FavSymphony extends SaadAPI{
 
-    @FindBy(how = How.CSS, using = "#masthead-search-term")
+    @FindBy(how = How.CSS, using = ".masthead-search-terms-border")
     public static WebElement SearchBar;
 
     @FindBy(how = How.CSS, using = "#search-btn")
@@ -43,7 +43,7 @@ public class FavSymphony extends SaadAPI{
 
     public void goToSearchBar(){
         clickOnSearchBar();
-        driver.findElement(By.cssSelector("#masthear-search-term")).sendKeys("Bolero");
+        SearchBar.sendKeys("Bolero");
     }
     public void goToSearchButton(){
         clickOnSearchButton();

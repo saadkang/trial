@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="BestBuy" />
+        <module name="Facebook" />
         <module name="Generic" />
         <module name="StumbleUpon" />
         <module name="YouTube" />
@@ -14,6 +15,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="BestBuy" target="1.8" />
+      <module name="Facebook" target="1.8" />
       <module name="Generic" target="1.8" />
       <module name="SelfAutomation" target="1.8" />
       <module name="StumbleUpon" target="1.8" />

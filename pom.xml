@@ -13,6 +13,7 @@
         <module>BestBuy</module>
         <module>StumbleUpon</module>
         <module>YouTube</module>
+        <module>Facebook</module>
     </modules>
 
     <dependencyManagement>

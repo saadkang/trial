@@ -14,8 +14,8 @@ public class Symphony extends SaadAPI{
     public void myFavSymphony() throws InterruptedException {
         FavSymphony favSymphony = PageFactory.initElements(driver, FavSymphony.class);
         favSymphony.goToSearchBar();
-//        favSymphony.goToSearchButton();
-//        favSymphony.goToSymphony();
-//        Thread.sleep(15000);
+        favSymphony.goToSearchButton();
+        favSymphony.goToSymphony();
+        Thread.sleep(15000);
     }
 }
