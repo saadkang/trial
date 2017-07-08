@@ -13,10 +13,10 @@ public class LoginPage extends SaadAPI{
     @Test
     public void loginHomePage() throws InterruptedException {
         Login login = PageFactory.initElements(driver, Login.class);
-        login.goToLoginPage();
-        login.goToUsername();
-        login.goToPassword();
-        login.goToFinalLoginButton();
-        Thread.sleep(3000);
+        login.clickOnLogin();
+        login.clickOnUsernameAndType("saadi_kang@hotmail.com");
+        login.clickOnPasswordAndType("Saad_1234");
+        login.clickOnTheLoginButton();
+        sleepFor(3);
     }
 }

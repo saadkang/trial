@@ -23,44 +23,18 @@ public class Login extends SaadAPI {
     @FindBy(how = How.CSS, using = ".login-submit")
     public static WebElement LoginButton;
 
-    public static WebElement getLogin() {
-        return Login;
+    public void clickOnLogin(){
+        Login.click();
     }
-    public static WebElement getUsername() {
-        return Username;
+    public void clickOnUsernameAndType(String userName){
+        Username.click();
+        Username.sendKeys(userName);
     }
-    public static WebElement getPassword() {
-        return Password;
+    public void clickOnPasswordAndType(String passWord){
+        Password.click();
+        Password.sendKeys(passWord);
     }
-    public static WebElement getLoginButton(){
-        return LoginButton;
-    }
-    public void clickOnLoginButton() {
-        getLogin().click();
-    }
-    public void clickOnUsername() {
-        getUsername().click();
-        driver.findElement(By.cssSelector("#email-username")).sendKeys("saadi_kang@gmail.com");
-    }
-
-    public void clickOnPassword() {
-        getPassword().click();
-        driver.findElement(By.cssSelector("#password-login")).sendKeys("Saad_1234");
-    }
-    public void clickOnFinaloginButton(){
-        getLoginButton().click();
-    }
-
-    public void goToLoginPage() {
-        clickOnLoginButton();
-    }
-    public void goToUsername() {
-        clickOnUsername();
-    }
-    public void goToPassword(){
-        clickOnPassword();
-    }
-    public void goToFinalLoginButton(){
-        clickOnFinaloginButton();
+    public void clickOnTheLoginButton(){
+        LoginButton.click();
     }
 }
