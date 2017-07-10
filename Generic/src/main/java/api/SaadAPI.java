@@ -66,18 +66,18 @@ public class SaadAPI {
         driver.manage().window().maximize();
     }
 
-    public WebDriver getLocalDriver(@Optional("mac") String OS, String browserName) {
+    public WebDriver getLocalDriver(@Optional("mac") String os, String browserName) {
         if (browserName.equalsIgnoreCase("chrome")) {
-            if (OS.equalsIgnoreCase("OS X")) {
+            if (os.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver");
-            } else if (OS.equalsIgnoreCase("Windows")) {
+            } else if (os.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.chrome.driver", "../Generic/driver/chromedriver.exe");
             }
             driver = new ChromeDriver();
         } else if (browserName.equalsIgnoreCase("firefox")) {
-            if (OS.equalsIgnoreCase("OS X")) {
+            if (os.equalsIgnoreCase("OS X")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver");
-            } else if (OS.equalsIgnoreCase("Windows")) {
+            } else if (os.equalsIgnoreCase("Windows")) {
                 System.setProperty("webdriver.gecko.driver", "../Generic/driver/geckodriver.exe");
             }
             driver = new FirefoxDriver();
@@ -132,7 +132,7 @@ public class SaadAPI {
     }
 
     public void clickByXpath(String locator) {
-        driver.findElement(By.xpath(locator));
+        driver.findElement(By.xpath(locator)).click();
     }
 
     public void typeByCss(String locator, String value) {

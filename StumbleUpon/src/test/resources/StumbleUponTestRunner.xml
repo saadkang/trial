@@ -14,6 +14,7 @@
     <test name = "StumbleUpon Home">
         <classes>
             <class name="login.LoginPage"/>
+            <class name="testpageurl.TestPageUrl"/>
         </classes>
     </test>
 </suite>
