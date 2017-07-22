@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="AshleyFurniture" />
         <module name="BestBuy" />
         <module name="Boeing" />
         <module name="Facebook" />
@@ -15,6 +16,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="AshleyFurniture" target="1.8" />
       <module name="BestBuy" target="1.8" />
       <module name="Boeing" target="1.8" />
       <module name="Facebook" target="1.8" />

@@ -15,6 +15,7 @@
         <module>YouTube</module>
         <module>Facebook</module>
         <module>Boeing</module>
+        <module>AshleyFurniture</module>
     </modules>
 
     <dependencyManagement>

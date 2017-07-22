@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="AshleyFurniture" parallel="tests">
+
+    <parameter name="useCloudEnv" value="false"/>
+    <parameter name="cloudEnvName" value="browserstack"/>
+    <parameter name="os" value="Windows"/>
+    <parameter name="os_version" value="10"/>
+    <parameter name="browserName" value="firefox"/>
+    <parameter name="browserVersion" value="53.0"/>
+    <parameter name="url" value="https://www.ashleyfurniturehomestore.com/"/>
+
+    <test name = "AshleyFurniture Home">
+        <classes>
+            <class name="navigationtab.TestFurnitureTab"/>
+            <class name="navigationtab.TestOutdoorTab"/>
+            <class name="navigationtab.TestKidsTab"/>
+            <class name="navigationtab.TestHomeDecorTab"/>
+            <class name="navigationtab.TestRugsTab"/>
+            <class name="navigationtab.TestLightingTab"/>
+            <class name="navigationtab.TestMattressesAndBedding"/>
+        </classes>
+    </test>
+</suite>
